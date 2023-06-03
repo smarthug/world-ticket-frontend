@@ -48,6 +48,7 @@ export default function SideNav({ value, handleChange }) {
                 <Tab label="Minting Page" to="/MintingPage" component={NavLink} />
                 <Tab label="Settings" to="/Settings" component={NavLink} /> */}
                 <Tab label="Ticket" to="/Ticket" component={NavLink} />
+                <Tab label="Enter" to="/Enter" component={NavLink} />
                 <Tab label="Community" to="/Community" component={NavLink} />
                 <Tab label="About" to="/" component={NavLink} />
                 {/* <Tab label="Item Five" to="/" component={Link} />

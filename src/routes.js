@@ -2,7 +2,7 @@ import React, {  useLayoutEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 
 
-import {  About, NotFound, Community,Ticket } from './pages'
+import {  About, NotFound, Community,Ticket, Enter } from './pages'
 
 
 export default function MyRoutes() {
@@ -27,6 +27,7 @@ export default function MyRoutes() {
             <Route  path={`/MetamaskInstall`} element={<MetamaskInstall />} />
             <Route exact path={`/Settings`} element={<Settings />} /> */}
             <Route exact path={`/Ticket`} element={<Ticket />} />
+            <Route exact path={`/Enter`} element={<Enter />} />
             <Route exact path={`/Community`} element={<Community />} />
             <Route exact path={`/`} element={<About />} />
             <Route path={`*`} element={<NotFound />} />

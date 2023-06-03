@@ -35,51 +35,26 @@ console.log(EthSeoulABI)
 // };
 
 
-export function Ticket() {
+export function Enter() {
 
     const { data: signer, isError, isLoading } = useSigner();
 
     const account = useAccount()
 
 
-    console.log("Ticket page loaded")
-    const [seatSelection, setSeatSelection] = useState(0);
-    const [price, setPrice] = useState(0);
-    // just multiply seatselection with 1000 as a price lol
-    // insert number of seat selection as Textfield
+    console.log("Enter page loaded")
+   
 
-    // const [value, setValue] = useState('');
+  
 
-    const [ticketTokenURI, setTokenURI] = useState('')
-
-    const handleChange = (event) => {
-        setSeatSelection(event.target.value);
-    };
-
-    // async function uploadToIPFS() {
-    //     const metadataForUpload = {
-    //         name: "Blackpink Eth Seoul",
-    //         description: "Blackpink concert ticket for Eth Seoul",
-    //         image: "ipfs, cid",
-    //         seatSelection: seatSelection,
-    //         price: price,
-    //         concertArtist: "BlackPink",
-    //         concertStartsAt: 1677740800000
-    //     }
-    //     const tokenURI = await ipfsUploadMetadata(metadataForUpload);
-    //     const tokenURL = `https://${tokenURI}.ipfs.nftstorage.link`;
-    //     // console.log("NFT IPFS upload is completed, NFT is stored at : ", `https://ipfs.io/ipfs/${tokenURI}`);
-    //     console.log("NFT IPFS upload is completed, NFT is stored at : ", tokenURL);
-
-
-    //     setTokenURI(tokenURL)
-    //     setPrice(33 * 1000 / seatSelection);
-    // }
+  
 
     async function onSuccess(response) {
         console.log('response', response)
 
-        console.log("bought the ticket")
+        // check provided nullifier_hash against the cloudflare worker kv
+
+        console.log("enter the concert")
 
         // store nullifier_hash to the cloudflare worker kv
 
@@ -104,27 +79,19 @@ export function Ticket() {
 
 
         <div>
-            <h1>Ticket</h1>
-            <img src={Stage} alt="stage" />
-            <TextField
-                id="seatSelection"
-                label="Filled"
-                variant="filled"
-                value={seatSelection}
-                onChange={handleChange}
-            />
-            <div>${price}</div>
-            {/* <button onClick={uploadToIPFS}>Save</button> */}
+            <h1>Enter</h1>
+            
+           
             <IDKitWidget
                 app_id="app_969c817bc4f1feb7d90b6f88a69297ff" // obtained from the Developer Portal
-                action={"ticket"} // this is your action identifier from the Developer Portal (can also be created on the fly)
+                action={"enter"} // this is your action identifier from the Developer Portal (can also be created on the fly)
                 signal={"test"} // any arbitrary value the user is committing to, e.g. for a voting app this could be the vote
                 onSuccess={onSuccess}
                 credential_types={['orb', 'phone']} // the credentials you want to accept
                 // walletConnectProjectId="get_this_from_walletconnect_portal" // optional, obtain from WalletConnect Portal
                 enableTelemetry
             >
-                {({ open }) => <button onClick={open}>Buy a ticket</button>}
+                {({ open }) => <button onClick={open}>Enter the concert</button>}
             </IDKitWidget>
         </div>
 
